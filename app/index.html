@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="alcoApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="alcoApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="alcoApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="alcoApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="app.css">
+
+
+</head>
+<body ng-controller="MainController">
+<div class="container main">
+  <div class="row intro">
+    <div class="col-md-12">
+      <h4 class="text-center">Вітаем на Алкагольнай старонцы!</h4>
+      <p class="text-justify">Тут вы можаце прыкладна разлічыць аб'ёмы ўжыванага алкаголю і вылічыць колькі праміле будзе знаходзіцца ў вашай крыві. Для гэтага ўвядзіце сваю вагу і колькасьць выпітага алкаголя якой якасьці. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi voluptatem, ipsam impedit minus quis deserunt pariatur voluptate quam odit. Provident voluptatem totam veniam ipsum placeat doloremque modi perferendis reiciendis, mollitia sapiente recusandae, dolorum rem dolore molestiae quaerat at voluptas quis, qui dicta quod ducimus animi laborum doloribus, nesciunt! Voluptatum, porro.</p>
+    </div>
+  </div> <!-- end of intro -->
+  <div class="container formal">
+    <div class="row">
+      <form action="" class="form-inline">
+        <fieldset >
+          <legend class="text-center">Прадстаўцеся калі ласка!</legend>
+          <div class="form-group col-md-4 col-md-offset-2">
+            <label for="name">Як вас зваць?</label>
+            <input type="text" id="name" ng-model="name">
+          </div>
+          <div class="form-group col-md-4 col-md-offset-1">
+            <label for="weight">Вашая вага(кг)</label>
+            <input type="number" id="weight" ng-model="weight">
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend class="text-center">Што будзем піць, спадараства?!</legend>
+
+          <div class="radio">
+            <input type="radio" name="wine" value="wine" id="wine"  ng-model="alcoName.brand">
+            <label for="wine">Віно(звычайнае -12%)</label>
+          </div>
+          <div class="radio">
+            <input type="radio" name="strong" value="wineStrong" id="strong" ng-model="alcoName.brand">
+            <label for="strong">Віно(моцнае -18%)</label>
+          </div>
+          <div class="radio">
+            <input type="radio" name="beer" value="beer" id="beer" ng-model="alcoName.brand">
+            <label for="beer">Піва( -5%)</label>
+          </div>
+          <div class="radio">
+            <input type="radio" name="vodka" value="vodka" id="vodka" ng-model="alcoName.brand">
+            <label for="vodka">Гарэлка(40%)</label>
+          </div>
+          <div class="radio">
+            <input type="radio" name="cognac" value="cognac" id="cognac" ng-model="alcoName.brand">
+            <label for="cognac">Каньяк(40%)</label>
+          </div>
+          <div class="radio">
+            <input type="radio" name="whiskey" value="whiskey" id="whiskey" ng-model="alcoName.brand">
+            <label for="whiskey">Ўіскі(40%)</label>
+          </div>
+
+        </fieldset>
+        <fieldset>
+          <legend class="text-center">І колькі(мл)?</legend>
+          <div class="form-group  col-md-6 col-md-offset-3">
+            <label for="amount">Колькасьць выпітага ў мл.</label>
+            <input type="number" ng-model="amount" name="amount" id="amount">
+          </div>
+        </fieldset>
+        <a class="btn btn-info col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4" ng-click="calculate()" ng-hide="total>3">Будзьма!</a>
+        <div class="alert alert-danger alert-dismissible" ng-show="total>3" ng-cloak>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Game Over, sweety!</strong>
+        </div>
+      </form>
+
+    </div>
+  </div> <!-- end of formal -->
+  <div class="row">
+    <div class="col-md-12">
+      <p ng-if="total" ng-cloak class="text-left">{{name}}, вы выпілі {{amount}} мілілітраў алкаголю.
+        Чыстага этанолу ў вашам арганізме {{total}}.
+        <img src="img/smayliki-vino.gif" alt="" ng-if="total<=1">
+        <img src="img/smayliki-middle.gif" alt="" ng-if="total>1 && total<3">
+        <img src="img/smile-end.gif" alt="" ng-if="total>3"></p>
+    </div>
+  </div>
+  <div class="container oftable">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        Табліца разлікаў
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-condenced table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Гатунак напою</th>
+              <th>Колькасьць</th>
+              <th>Градус</th>
+              <th>Утрыманне алкаголю ў крыві(&#8240)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="alco in alcohols track by $index" ng-cloak>
+              <td>{{alco.brand}}</td>
+              <td>{{alco.amount}}л</td>
+              <td>{{alco.alcoStrength}}%</td>
+              <td>{{alco.alcoPromille}}‰</td>
+            </tr>
+            <tr>
+              <td colspan="3"></td>
+              <td ng-cloak>Total: {{total}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end of oftable -->
+
+</div> <!-- end of main container -->
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+  <script src="app.js"></script>
+<script src="controllers/mainController.js"></script>
+
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>

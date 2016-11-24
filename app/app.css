@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url("fonts/Ubuntu/Ubuntu-Regular.ttf");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("fonts/Open_Sans/OpenSans-Regular.ttf");
+  font-weight: normal;
+  font-style: normal; }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: "Ubuntu", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  background: #f1f8e9 url("img/bg.png"); }
+
+input {
+  outline: none; }
+
+h4 {
+  color: #0099CC; }
+
+p {
+  text-indent: 3em; }
+p::first-letter {
+  font-size: 2em;
+  color: #0099CC; }
+
+legend {
+  font-family: "Open Sans";
+  color: #0099CC; }
+
+.radio {
+  margin-right: 2%; }
+
+fieldset {
+  margin-bottom: 20px; }
+
+@media (max-width: 768px) {
+  input[type="radio"] {
+    margin-left: 0 !important; } }
+
+.table-responsive {
+  margin-top: 1%; }
+
+.panel-heading > p {
+  font-size: large;
+  color: white; }
+
+form {
+  margin-bottom: 4em; }
