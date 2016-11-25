@@ -1,0 +1,33 @@
+<div class="container oftable">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Табліца разлікаў
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-condenced table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Гатунак напою</th>
+                        <th>Колькасьць</th>
+                        <th>Градус</th>
+                        <th>Утрыманне алкаголю ў крыві(&#8240)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="alco in alcohols track by $index" ng-cloak>
+                        <td>{{alco.brand}}</td>
+                        <td>{{alco.amount}}л</td>
+                        <td>{{alco.alcoStrength}}%</td>
+                        <td>{{alco.alcoPromille}}‰</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"></td>
+                        <td ng-cloak>Total: {{total}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
