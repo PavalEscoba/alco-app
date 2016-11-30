@@ -1,2 +1,2 @@
 'use strict';
-var app = angular.module("alcoApp", []);
+var app = angular.module("alcoApp", ["ngRoute"]);

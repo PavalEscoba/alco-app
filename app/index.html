@@ -20,25 +20,24 @@
 </head>
 <body ng-controller="MainController">
   <div class="container main">
-    <intro></intro> <!-- end of intro -->
-    <form></form> <!-- end of formal -->
-    <information></information>
-    <table-of-alco></table-of-alco><!-- end of oftable -->
+    <div ng-view></div>
 
-  </div> <!-- end of main container -->
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
+  </div>
+
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="app.js"></script>
+  <script src="routes.js"></script>
   <script src="controllers/mainController.js"></script>
   <script src="directives/form.js"></script>
   <script src="directives/information.js"></script>
   <script src="directives/intro.js"></script>
   <script src="directives/table-of-alco.js"></script>
+  <script src="controllers/loginController.js"></script>
+
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>

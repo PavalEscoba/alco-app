@@ -1,0 +1,11 @@
+angular.module('alcoApp')
+.config(function($routeProvider){
+    $routeProvider
+        .when('/',{
+        templateUrl:'login.html'
+        })
+        .when('/app',{
+         templateUrl:'app.html'
+        })
+        .otherwise({redirectTo:'/error.html'});
+});

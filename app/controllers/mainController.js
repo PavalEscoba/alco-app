@@ -28,27 +28,28 @@ app.controller("MainController", function($scope){
 	$scope.calculate = function(){
 	
 			 if($scope.alcoName.brand == "wine"){
+			 	console.log(name);
 				var drink = calc($scope.weight, wineDrink, $scope.amount)
 				$scope.alcohols.push(drink);
-				console.log($scope.total);
+
 
 			}
 			else if($scope.alcoName.brand == "wineStrong"){
 				var drink = calc($scope.weight, strongDrink, $scope.amount)
 				$scope.alcohols.push(drink);
-				console.log(typeof $scope.total);
+				console
 				
 			}
 			else if($scope.alcoName.brand == "beer"){
 				var drink = calc($scope.weight, beerDrink, $scope.amount)
 				$scope.alcohols.push(drink);
-				console.log($scope.total);
+
 				
 			}
 			else if($scope.alcoName.brand=="vodka"){
 				var drink = calc($scope.weight, vodkaDrink, $scope.amount)
 				$scope.alcohols.push(drink);
-				console.log($scope.total);
+
 				
 			}
 			else if($scope.alcoName.brand == "cognac"){

@@ -9,6 +9,7 @@ var app = angular.module("alcoApp");
 app.directive("form", function () {
     return{
         restrict: "E",
-        templateUrl: "templates/form.html"
+        templateUrl: "templates/form.html",
+        scope: true
     }
 });
